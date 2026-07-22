@@ -1,0 +1,45 @@
+====================================
+         TASK MANAGER
+====================================
+
+1. Add Task
+2. View Tasks
+3. Update Task
+4. Delete Task
+5. Search Task
+6. Mark Completed
+7. Exit
+
+Enter Choice: 1
+
+Enter Task Title: Complete Cognifyz Task
+
+Task Added Successfully!
+
+Enter Choice: 2
+
+========== TASK LIST ==========
+
+ID      : 1
+Task    : Complete Cognifyz Task
+Status  : Pending
+-------------------------------
+
+Enter Choice: 6
+
+Enter Task ID: 1
+
+Task Marked as Completed!
+
+Enter Choice: 2
+
+========== TASK LIST ==========
+
+ID      : 1
+Task    : Complete Cognifyz Task
+Status  : Completed
+-------------------------------
+
+Enter Choice: 7
+
+Thank You!
