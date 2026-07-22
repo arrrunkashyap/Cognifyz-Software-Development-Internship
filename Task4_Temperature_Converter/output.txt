@@ -1,0 +1,25 @@
+====================================
+      TEMPERATURE CONVERTER
+====================================
+
+1. Celsius to Fahrenheit
+2. Fahrenheit to Celsius
+3. Celsius to Kelvin
+4. Kelvin to Celsius
+5. Fahrenheit to Kelvin
+6. Kelvin to Fahrenheit
+7. Exit
+
+Enter your choice: 1
+Enter temperature: 37
+
+Result: 98.60 °F
+
+Enter your choice: 3
+Enter temperature: 25
+
+Result: 298.15 K
+
+Enter your choice: 7
+
+Thank you for using the Temperature Converter!
