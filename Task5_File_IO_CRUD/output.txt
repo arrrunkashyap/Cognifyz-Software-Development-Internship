@@ -1,0 +1,42 @@
+=========================================
+      FILE BASED TASK MANAGER
+=========================================
+
+1. Add Task
+2. View Tasks
+3. Update Task
+4. Delete Task
+5. Search Task
+6. Mark Completed
+7. Task Statistics
+8. Sort by ID
+9. Exit
+
+Enter Choice: 1
+
+Enter Task Title:
+Complete Cognifyz Task 5
+
+Task Added Successfully!
+
+Enter Choice: 2
+
+============================
+
+ID      : 1
+Task    : Complete Cognifyz Task 5
+Status  : Pending
+
+============================
+
+Enter Choice: 6
+
+Enter Task ID: 1
+
+Task Marked Completed!
+
+Enter Choice: 7
+
+Total Tasks      : 1
+Completed Tasks  : 1
+Pending Tasks    : 0
