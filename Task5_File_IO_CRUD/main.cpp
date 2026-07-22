@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <limits>
+#include <algorithm>
 
 using namespace std;
 
@@ -39,6 +40,20 @@ void saveTasks()
     file.close();
 }
 
+
+bool compareTask(Task a, Task b)
+{
+    return a.id < b.id;
+}
+
+void sortTasks()
+{
+    sort(tasks.begin(), tasks.end(), compareTask);
+
+    saveTasks();
+
+    cout << "\nTasks Sorted Successfully!\n";
+}
 // Load tasks from file
 void loadTasks()
 {
@@ -116,22 +131,149 @@ void viewTasks()
     }
 }
 
+
+void updateTask()
+{
+    int id;
+    cout << "\nEnter Task ID to update: ";
+    cin >> id;
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (auto &task : tasks)
+    {
+        if (task.id == id)
+        {
+            cout << "Enter New Task Title: ";
+            getline(cin, task.title);
+
+            saveTasks();
+
+            cout << "\nTask Updated Successfully!\n";
+            return;
+        }
+    }
+
+    cout << "\nTask Not Found!\n";
+}
+
+
+
+void deleteTask()
+{
+    int id;
+
+    cout << "\nEnter Task ID to delete: ";
+    cin >> id;
+
+    for (int i = 0; i < tasks.size(); i++)
+    {
+        if (tasks[i].id == id)
+        {
+            tasks.erase(tasks.begin() + i);
+
+            saveTasks();
+
+            cout << "\nTask Deleted Successfully!\n";
+            return;
+        }
+    }
+
+    cout << "\nTask Not Found!\n";
+}
+
+
+void searchTask()
+{
+    int id;
+
+    cout << "\nEnter Task ID to search: ";
+    cin >> id;
+
+    for (const auto &task : tasks)
+    {
+        if (task.id == id)
+        {
+            cout << "\n========== TASK FOUND ==========\n";
+            cout << "ID      : " << task.id << endl;
+            cout << "Title   : " << task.title << endl;
+            cout << "Status  : "
+                 << (task.completed ? "Completed" : "Pending")
+                 << endl;
+            return;
+        }
+    }
+
+    cout << "\nTask Not Found!\n";
+}
+
+
+void markCompleted()
+{
+    int id;
+
+    cout << "\nEnter Task ID: ";
+    cin >> id;
+
+    for (auto &task : tasks)
+    {
+        if (task.id == id)
+        {
+            if (task.completed)
+            {
+                cout << "\nTask is already completed.\n";
+                return;
+            }
+
+            task.completed = true;
+
+            saveTasks();
+
+            cout << "\nTask Marked as Completed!\n";
+            return;
+        }
+    }
+
+    cout << "\nTask Not Found!\n";
+}
+
+void taskStatistics()
+{
+    int completed = 0;
+
+    for (const auto &task : tasks)
+    {
+        if (task.completed)
+            completed++;
+    }
+
+    cout << "\n========== TASK STATISTICS ==========\n";
+    cout << "Total Tasks      : " << tasks.size() << endl;
+    cout << "Completed Tasks  : " << completed << endl;
+    cout << "Pending Tasks    : " << tasks.size() - completed << endl;
+}
+
 int main()
 {
     loadTasks();
 
-    cout << "=========================================\n";
-    cout << "      FILE BASED TASK MANAGER\n";
-    cout << "=========================================\n";
+    cout << "\n=====================================\n";
+    cout << "     FILE BASED TASK MANAGER\n";
+    cout << "=====================================\n";
 
-    cout << "\n1. Add Task";
-    cout << "\n2. View Tasks";
-    cout << "\n3. Exit";
+    cout << "1. Add Task\n";
+    cout << "2. View Tasks\n";
+    cout << "3. Update Task\n";
+    cout << "4. Delete Task\n";
+    cout << "5. Search Task\n";
+    cout << "6. Mark Completed\n";
+    cout << "7. Task Statistics\n";
+    cout << "8. Sort Tasks\n";
+    cout << "9. Exit\n";
 
     int choice;
 
-    do
-    {
+    do{
         cout << "\n\nEnter Choice: ";
 
         while (!(cin >> choice))
@@ -141,26 +283,105 @@ int main()
             cout << "Invalid input! Enter again: ";
         }
 
+        switch(choice){
+            case 1:
+                addTask();
+                break;
+
+            case 2:
+                viewTasks();
+                break;
+
+            case 3:
+                updateTask();
+                break;
+
+            case 4:
+                deleteTask();
+                break;
+
+            case 5:
+                searchTask();
+                break;
+
+            case 6:
+                markCompleted();
+                break;
+
+            case 7:
+                saveTasks();
+                cout << "\nThank You!\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice!\n";
+        }
+    }
+
+
+    int choice;
+    do{
+        cout << "\nEnter Choice: ";
+
+        while (!(cin >> choice) || choice < 1 || choice > 9){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid Choice! Enter Again: ";
+        }
+        
+        
         switch (choice)
         {
-        case 1:
-            addTask();
-            break;
+            case 1:
+                addTask();
+                break;
 
-        case 2:
-            viewTasks();
-            break;
+            case 2:
+                viewTasks();
+                break;
 
-        case 3:
-            saveTasks();
-            cout << "\nThank You!\n";
-            break;
+            case 3:
+                updateTask();
+                break;
 
-        default:
-            cout << "\nInvalid Choice!\n";
-        }
+            case 4:
+                deleteTask();
+                break;
 
-    } while (choice != 3);
+            case 5:
+                searchTask();
+                break;
+
+            case 6:
+                markCompleted();
+                break;
+
+            case 7:
+                taskStatistics();
+                break;
+
+            case 8:
+                sortTasks();
+                break;
+
+            case 9:
+                saveTasks();
+                cout << "\nThank You for using File Based Task Manager!\n";
+                break;
+
+            default:
+                cout << "\nInvalid Choice!\n";
+        }            
+
+
+
+    } while (!(cin >> choice) || choice < 1 || choice > 9){
+
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        cout << "Invalid Choice! Enter again: ";
+    }
 
     return 0;
 }
