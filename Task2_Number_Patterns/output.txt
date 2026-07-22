@@ -1,0 +1,20 @@
+=====================================
+     NUMBER PATTERN GENERATOR
+=====================================
+
+1. Half Pyramid
+2. Inverted Half Pyramid
+3. Full Number Pyramid
+4. Floyd's Triangle
+5. Exit
+
+Enter your choice: 1
+Enter number of rows: 5
+
+Half Pyramid
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
