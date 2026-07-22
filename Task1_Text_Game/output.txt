@@ -1,0 +1,71 @@
+=====================================
+      TREASURE HUNT ADVENTURE
+=====================================
+
+Enter your name: Arun
+
+---------------------------------
+Health : 100
+Score  : 0
+---------------------------------
+
+Choose a path:
+1. Dark Forest
+2. Mysterious Cave
+3. Ancient Temple
+Enter your choice: 2
+
+Exploring...
+
+💎 You discovered a magical crystal!
+
+Current Health : 100
+Current Score  : 30
+
+Do you want to continue? (Y/N): Y
+
+---------------------------------
+Health : 100
+Score  : 30
+---------------------------------
+
+Choose a path:
+1. Dark Forest
+2. Mysterious Cave
+3. Ancient Temple
+Enter your choice: 1
+
+Exploring...
+
+👹 A monster attacked you!
+
+Current Health : 80
+Current Score  : 50
+
+Do you want to continue? (Y/N): Y
+
+---------------------------------
+Health : 80
+Score  : 50
+---------------------------------
+
+Choose a path:
+1. Dark Forest
+2. Mysterious Cave
+3. Ancient Temple
+Enter your choice: 3
+
+Exploring...
+
+🎁 You found hidden treasure!
+
+Current Health : 80
+Current Score  : 100
+
+Do you want to continue? (Y/N): N
+
+=====================================
+Thanks for playing, Arun!
+Final Score : 100
+Final Health: 80
+=====================================
