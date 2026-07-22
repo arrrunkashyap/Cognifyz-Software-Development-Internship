@@ -1,0 +1,16 @@
+===================================
+      WEB SCRAPING TOOL
+===================================
+
+1. Get Page Title
+2. Extract Headings
+3. Extract Links
+4. Exit
+
+Enter Choice: 1
+
+Enter Website URL:
+https://example.com
+
+Page Title:
+Example Domain
